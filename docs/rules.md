@@ -459,6 +459,8 @@ Bad:
 
 A rule that disallows variable names which are only one character long.
 
+It does permit `i`, as a traditional name for counters, as well as `_`.
+
 Good:
     my_mood = :happy
     [number_of_cats] = [3]
