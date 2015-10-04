@@ -33,6 +33,7 @@ defmodule Dogma.RuleSet.All do
       {TrailingWhitespace},
       {UnlessElse},
       {VariableName},
+      {VariableNameLength},
       {WindowsLineEndings},
     ]
   end

@@ -1,7 +1,7 @@
 # Dogma Rules
 
 These are the rules included in Dogma by default. Currently there are
-25 of them.
+26 of them.
 
 ## Contents
 
@@ -29,6 +29,7 @@ These are the rules included in Dogma by default. Currently there are
 * [TrailingWhitespace](https://github.com/lpil/dogma/blob/master/docs/rules.md#trailingwhitespace)
 * [UnlessElse](https://github.com/lpil/dogma/blob/master/docs/rules.md#unlesselse)
 * [VariableName](https://github.com/lpil/dogma/blob/master/docs/rules.md#variablename)
+* [VariableNameLength](https://github.com/lpil/dogma/blob/master/docs/rules.md#variablenamelength)
 * [WindowsLineEndings](https://github.com/lpil/dogma/blob/master/docs/rules.md#windowslineendings)
 
 
@@ -452,6 +453,21 @@ Bad:
     myMood = :sad
     [numberOfCats] = [3]
     {functionName, meta, otherStuff} = node
+
+
+### VariableNameLength
+
+A rule that disallows variable names which are only one character long.
+
+Good:
+    my_mood = :happy
+    [number_of_cats] = [3]
+    {function_name, _, other_stuff} = node
+
+Bad:
+    m = :sad
+    [n] = [3]
+    {f, _, o} = node
 
 
 ### WindowsLineEndings
