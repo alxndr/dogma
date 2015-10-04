@@ -15,8 +15,11 @@ defmodule Dogma.Rule.DebuggerStatement do
     script |> Script.walk( &check_node(&1, &2) )
   end
 
-  defp check_node({:., m, [{:__aliases__, _, [:IEx]}, :pry]} = node, errors) do
-    error = error( m[:line] )
+  defp check_node({:.,
+                   module,
+                   [{:__aliases__, _, [:IEx]}, :pry]} = node,
+                  errors) do
+    error = error( module[:line] )
     {node, [error | errors]}
   end
   defp check_node(node, errors) do

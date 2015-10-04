@@ -23,12 +23,17 @@ defmodule Dogma.Rule.ModuleName do
     script |> Script.walk( &check_node(&1, &2) )
   end
 
-  defp check_node({:defmodule, m, [x, _]} = node, errors) when is_atom x do
-    errors = check_names( [x], errors, m[:line] )
+  defp check_node({:defmodule,
+                   module, [something, _]} = node,
+                  errors) when is_atom something do
+    errors = check_names( [something], errors, module[:line] )
     {node, errors}
   end
-  defp check_node({:defmodule, m, [{:__aliases__, _, x}, _]} = node, errors) do
-    errors = check_names( x, errors, m[:line] )
+  defp check_node({:defmodule,
+                   module,
+                   [{:__aliases__, _, something}, _]} = node,
+                  errors) do
+    errors = check_names( something, errors, module[:line] )
     {node, errors}
   end
   defp check_node(node, errors) do

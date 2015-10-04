@@ -43,12 +43,15 @@ defmodule Dogma.Rule.ModuleDoc do
     end
   end
 
-  defp check_node({:defmodule, m, [mod, [do: module_body]]} = node, errors) do
+  defp check_node({:defmodule,
+                   module,
+                   [mod, [do: module_body]]} = node,
+                   errors) do
     {_,_,names} = mod
     if module_body |> moduledoc? do
       {node, errors}
     else
-      {node, [error( m[:line], Enum.join(names, ".") ) | errors]}
+      {node, [error( module[:line], Enum.join(names, ".") ) | errors]}
     end
   end
   defp check_node(node, errors) do
