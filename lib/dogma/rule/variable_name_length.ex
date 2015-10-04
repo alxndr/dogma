@@ -2,6 +2,8 @@ defmodule Dogma.Rule.VariableNameLength do
   @moduledoc """
   A rule that disallows variable names which are only one character long.
 
+  It does permit `i`, as a traditional name for counters, as well as `_`.
+
   Good:
       my_mood = :happy
       [number_of_cats] = [3]
@@ -60,7 +62,7 @@ defmodule Dogma.Rule.VariableNameLength do
     %Error{
       rule:    __MODULE__,
       message: """
-      Variable names should be more descriptive than just one character
+        Variable names should be more descriptive than just one character
       """,
       line:    pos,
     }

@@ -24,7 +24,8 @@ defmodule Dogma.Rule.ModuleName do
   end
 
   defp check_node({:defmodule,
-                   module, [something, _]} = node,
+                   module,
+                   [something, _]} = node,
                   errors) when is_atom something do
     errors = check_names( [something], errors, module[:line] )
     {node, errors}

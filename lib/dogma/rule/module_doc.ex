@@ -46,7 +46,7 @@ defmodule Dogma.Rule.ModuleDoc do
   defp check_node({:defmodule,
                    module,
                    [mod, [do: module_body]]} = node,
-                   errors) do
+                  errors) do
     {_,_,names} = mod
     if module_body |> moduledoc? do
       {node, errors}
